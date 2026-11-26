@@ -27,6 +27,9 @@ if (existsSync(join(here, 'screenshots'))) cpSync(join(here, 'screenshots'), joi
 // bytes; the other caps refuse an entry the scorer would refuse (more than 4
 // screenshots or one over 256 KiB; more than 993 files in game/ or 48 MiB of
 // game files, in all, or a path under game/ over 1000 bytes).
+// The hand-in is deterministic: the same repository always writes the same
+// bytes (plain copies plus buildDossier's canonical JSON), so the grader's
+// two runs agree.
 writeFileSync(
   join(out, 'dossier.json'),
   buildDossier(out, {
