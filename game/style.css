@@ -1,0 +1,56 @@
+/* Merapi Sky Run — HUD and screen styling. Dark glass panels, amber instruments. */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #0b1622; }
+body { font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; color: #eaf2f8; }
+#game-wrap { position: relative; width: 100%; height: 100%; }
+#scene { display: block; width: 100%; height: 100%; }
+.hidden { display: none !important; }
+
+/* ---------- HUD ---------- */
+#hud { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
+#hud-top { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
+.hud-box { background: rgba(8, 20, 32, 0.72); border: 1px solid rgba(120, 200, 255, 0.35); border-radius: 8px; padding: 6px 12px; text-align: center; min-width: 96px; box-shadow: 0 0 12px rgba(0, 0, 0, 0.35); }
+.hud-box.big { min-width: 120px; }
+.hud-label { display: block; font-size: 10px; letter-spacing: 2px; color: #8fd0ff; }
+.hud-value { font-size: 26px; font-weight: 700; color: #ffe9a8; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.hud-value.small { font-size: 16px; }
+.hud-unit { font-size: 11px; color: #8fd0ff; margin-left: 3px; }
+#compass { position: absolute; top: 74px; left: 50%; transform: translateX(-50%); width: 340px; height: 26px; overflow: hidden; background: rgba(8, 20, 32, 0.72); border: 1px solid rgba(120, 200, 255, 0.35); border-radius: 6px; }
+#compass-tape { position: absolute; top: 0; left: 0; height: 26px; white-space: nowrap; font-size: 13px; font-weight: 700; color: #ffe9a8; line-height: 26px; letter-spacing: 1px; }
+#compass-needle { position: absolute; left: 50%; top: 0; transform: translateX(-50%); color: #ff5a4e; font-size: 13px; line-height: 14px; }
+#hud-left { position: absolute; left: 14px; top: 110px; display: flex; flex-direction: column; gap: 8px; }
+#hud-left .hud-box { text-align: left; min-width: 190px; }
+.bar { height: 10px; background: rgba(255, 255, 255, 0.12); border-radius: 5px; margin-top: 4px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 5px; }
+.bar-fill.throttle { background: #ffb63d; width: 0%; }
+.bar-fill.fuel { background: #4ecb71; width: 100%; }
+.bar-fill.damage { background: #ff5a4e; width: 0%; }
+#hud-right { position: absolute; right: 14px; top: 110px; display: flex; flex-direction: column; gap: 8px; }
+#attitude-wrap { position: absolute; left: 14px; bottom: 14px; text-align: center; background: rgba(8, 20, 32, 0.72); border: 1px solid rgba(120, 200, 255, 0.35); border-radius: 10px; padding: 8px; }
+#attitude { display: block; border-radius: 50%; }
+#message { position: absolute; top: 34%; left: 50%; transform: translateX(-50%); font-size: 34px; font-weight: 800; color: #ffe9a8; text-shadow: 0 2px 14px rgba(0, 0, 0, 0.8); text-align: center; letter-spacing: 1px; }
+#objective { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 15px; font-weight: 600; color: #cfe8ff; background: rgba(8, 20, 32, 0.72); border: 1px solid rgba(120, 200, 255, 0.35); border-radius: 8px; padding: 8px 16px; text-align: center; max-width: 640px; }
+
+/* ---------- Cockpit instrument panel ---------- */
+#cockpit { position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); z-index: 6; pointer-events: none; }
+#gauges { display: block; filter: drop-shadow(0 -4px 18px rgba(0, 0, 0, 0.55)); }
+
+/* ---------- Title / end / pause ---------- */
+#title-screen, #end-screen, #pause-screen { position: absolute; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; background: rgba(4, 12, 22, 0.55); }
+#title-card, #end-card { background: rgba(8, 20, 34, 0.88); border: 1px solid rgba(120, 200, 255, 0.4); border-radius: 16px; padding: 30px 36px; max-width: 620px; width: 92%; text-align: center; box-shadow: 0 10px 50px rgba(0, 0, 0, 0.6); }
+#title-kicker { font-size: 12px; letter-spacing: 4px; color: #8fd0ff; }
+#title-card h1 { font-size: 64px; line-height: 0.95; color: #ffe9a8; letter-spacing: 2px; margin: 10px 0; text-shadow: 0 0 24px rgba(255, 182, 61, 0.45); }
+#title-sub { font-size: 15px; color: #cfe8ff; margin-bottom: 18px; }
+#mission-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+.mission-btn { cursor: pointer; background: rgba(20, 44, 66, 0.9); border: 1px solid rgba(120, 200, 255, 0.45); border-radius: 10px; color: #eaf2f8; padding: 12px 16px; text-align: left; font-size: 15px; }
+.mission-btn:hover, .mission-btn:focus { background: rgba(38, 80, 112, 0.95); border-color: #ffe9a8; outline: none; }
+.mission-btn b { display: block; color: #ffe9a8; letter-spacing: 1px; }
+.mission-btn span { font-size: 13px; color: #a9cbe4; }
+#title-controls { font-size: 13px; color: #a9cbe4; margin-bottom: 8px; }
+#title-foot { font-size: 11px; color: #6f93ad; }
+#end-card h2 { font-size: 44px; color: #ffe9a8; margin-bottom: 10px; }
+#end-detail { font-size: 16px; color: #cfe8ff; margin-bottom: 8px; white-space: pre-line; }
+#end-score { font-size: 26px; font-weight: 700; color: #ffe9a8; margin-bottom: 18px; }
+#again-btn, #menu-btn { cursor: pointer; background: #ffb63d; color: #1a2a3a; border: none; border-radius: 8px; padding: 12px 22px; font-size: 15px; font-weight: 700; margin: 0 6px; }
+#menu-btn { background: rgba(20, 44, 66, 0.9); color: #eaf2f8; border: 1px solid rgba(120, 200, 255, 0.45); }
+#pause-screen div { font-size: 30px; font-weight: 700; color: #ffe9a8; background: rgba(8, 20, 34, 0.85); padding: 24px 40px; border-radius: 12px; border: 1px solid rgba(120, 200, 255, 0.4); }

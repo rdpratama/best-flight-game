@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Merapi Sky Run — Volcano Island Ring Rally</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="game-wrap">
+  <canvas id="scene"></canvas>
+  <div id="hud" class="hidden">
+    <div id="hud-top">
+      <div class="hud-box" id="hud-speed"><span class="hud-label">SPEED</span><span class="hud-value" id="v-speed">0</span><span class="hud-unit">KT</span></div>
+      <div class="hud-box" id="hud-alt"><span class="hud-label">ALTITUDE</span><span class="hud-value" id="v-alt">0</span><span class="hud-unit">FT</span></div>
+      <div class="hud-box" id="hud-hdg"><span class="hud-label">HEADING</span><span class="hud-value" id="v-hdg">090&deg;</span></div>
+      <div class="hud-box" id="hud-vsi"><span class="hud-label">CLIMB</span><span class="hud-value" id="v-vsi">0</span><span class="hud-unit">FT/MIN</span></div>
+    </div>
+    <div id="compass"><div id="compass-tape"></div><div id="compass-needle">&#9660;</div></div>
+    <div id="hud-left">
+      <div class="hud-box"><span class="hud-label">THROTTLE</span><div class="bar"><div id="bar-throttle" class="bar-fill throttle"></div></div></div>
+      <div class="hud-box"><span class="hud-label">FUEL</span><div class="bar"><div id="bar-fuel" class="bar-fill fuel"></div></div><span class="hud-value small" id="v-fuel">100%</span></div>
+      <div class="hud-box"><span class="hud-label">DAMAGE</span><div class="bar"><div id="bar-damage" class="bar-fill damage"></div></div><span class="hud-value small" id="v-damage">0%</span></div>
+      <div class="hud-box"><span class="hud-label">GEAR</span><span class="hud-value small" id="v-gear">DOWN</span> &nbsp;<span class="hud-label">FLAPS</span><span class="hud-value small" id="v-flaps">UP</span></div>
+    </div>
+    <div id="hud-right">
+      <div class="hud-box big"><span class="hud-label" id="mission-name">RING RALLY</span><span class="hud-value" id="v-rings">0 / 8</span><span class="hud-label">RINGS</span></div>
+      <div class="hud-box big"><span class="hud-label">TIME</span><span class="hud-value" id="v-time">0:00</span></div>
+      <div class="hud-box big"><span class="hud-label">SCORE</span><span class="hud-value" id="v-score">0</span></div>
+    </div>
+    <div id="attitude-wrap"><canvas id="attitude" width="150" height="150"></canvas><div class="hud-label">ATTITUDE</div></div>
+    <div id="message"></div>
+    <div id="objective"></div>
+  </div>
+  <div id="cockpit" class="hidden">
+    <canvas id="gauges" width="560" height="150"></canvas>
+  </div>
+  <div id="title-screen">
+    <div id="title-card">
+      <div id="title-kicker">VOLCANO ISLAND &middot; BUSH PILOT</div>
+      <h1>MERAPI<br>SKY RUN</h1>
+      <div id="title-sub">Ring rally over a living volcano island. Fly the rings, mind your fuel, bring her home.</div>
+      <div id="mission-list">
+        <button class="mission-btn" data-mission="rally"><b>1 &mdash; RING RALLY</b><span>8 rings around the island &middot; race the clock</span></button>
+        <button class="mission-btn" data-mission="volcano"><b>2 &mdash; VOLCANO CIRCUIT</b><span>6 rings over the crater &middot; thin air, tight turns</span></button>
+        <button class="mission-btn" data-mission="landing"><b>3 &mdash; ISLAND LANDING</b><span>Take off, round the beacon, land on runway 09</span></button>
+      </div>
+      <div id="title-controls">W/S throttle &middot; &uarr;/&darr; pitch &middot; &larr;/&rarr; roll &middot; A/D rudder &middot; B airbrake &middot; G gear &middot; C camera &middot; P pause &middot; M sound</div>
+      <div id="title-foot">Merapi Sky Run &mdash; an original game. No network, no libraries beyond vendored three.js.</div>
+    </div>
+  </div>
+  <div id="end-screen" class="hidden">
+    <div id="end-card">
+      <h2 id="end-title">LANDED</h2>
+      <div id="end-detail"></div>
+      <div id="end-score"></div>
+      <button id="again-btn">FLY AGAIN (R)</button>
+      <button id="menu-btn">MISSIONS (M)</button>
+    </div>
+  </div>
+  <div id="pause-screen" class="hidden"><div>PAUSED &mdash; press P to resume</div></div>
+</div>
+<script src="vendor/three.min.js"></script>
+<script src="src/config.js"></script>
+<script src="src/noise.js"></script>
+<script src="src/terrain.js"></script>
+<script src="src/aircraft.js"></script>
+<script src="src/rings.js"></script>
+<script src="src/audio.js"></script>
+<script src="src/input.js"></script>
+<script src="src/hud.js"></script>
+<script src="src/shots.js"></script>
+<script src="src/main.js"></script>
+</body>
+</html>
